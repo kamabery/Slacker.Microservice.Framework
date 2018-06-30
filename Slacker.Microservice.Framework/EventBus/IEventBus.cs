@@ -1,12 +1,12 @@
-﻿namespace Slacker.Microservice.Framework.EventBus
+﻿using System.Threading.Tasks;
+
+namespace Slacker.Microservice.Framework.EventBus
 {
     public interface IEventBus
     {
-        void Publish(Event @event);
+        bool Publish(Event @event);
 
-        void Subscribe<T, TH>()
-            where T : Event
-            where TH : IEventHandler;
-
+        bool Subscribe<T>()
+            where T : Event;
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace Slacker.Microservice.Framework.EventBus
+﻿using System.Threading.Tasks;
+
+namespace Slacker.Microservice.Framework.EventBus
 {
-    public interface IEventHandler
+    public interface IEventHandler<T> where T : Event
     {
-        void HandleEvent<T>(T @event) where T : Event;
+        Task HandleEvent(T @event);
     }
 }
